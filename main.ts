@@ -1,20 +1,22 @@
+input.onPinPressed(TouchPin.P0, function () {
+	
+})
 function 燈數 (num: number, 關燈: boolean) {
     if (num % 5 == 0) {
         x = 4
         y = Math.floor(num / 5) - 1
+        led.unplot(x, y)
     } else {
         x = num % 5 - 1
         y = Math.floor(num / 5)
-    }
-    if (關燈) {
-        led.unplot(x, y)
-    } else {
-        led.plot(x, y)
     }
 }
 input.onButtonPressed(Button.A, function () {
     n += 1
     燈數(n, false)
+})
+music.onEvent(MusicEvent.MelodyNotePlayed, function () {
+	
 })
 input.onButtonPressed(Button.AB, function () {
     basic.clearScreen()
